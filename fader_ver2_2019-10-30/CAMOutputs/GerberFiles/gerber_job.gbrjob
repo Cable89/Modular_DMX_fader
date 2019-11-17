@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2019-10-30T21:47:55Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.5.1"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.57,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "fader_ver2"
+        },
+        "Owner": "Oystein Smith <oystein.smith@nordicsemi.no>",
+        "Size": {
+            "X": 100,
+            "Y": 50
+        }
+    }
+}
