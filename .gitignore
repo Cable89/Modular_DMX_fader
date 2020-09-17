@@ -28,5 +28,16 @@ ODB/
 Pick Place/
 Test Points/
 
+# Software generated output
+**/Debug/*.o
+**/Debug/*.d
+**/Debug/*.lss
+**/Debug/*.map
+**/Debug/*.elf
+**/Debug/*.srec
+**/Debug/*.mk
+**/Debug/Makefile
+*.b##
+
 # Solidworks
 ~*
