@@ -26,16 +26,16 @@
     <BootSegment>2</BootSegment>
     <eraseonlaunchrule>0</eraseonlaunchrule>
     <AsfFrameworkConfig>
-      <framework-data xmlns="">
-        <options />
-        <configurations />
-        <files />
-        <documentation help="" />
-        <offline-documentation help="" />
-        <dependencies>
-          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.17.0" />
-        </dependencies>
-      </framework-data>
+      <framework-data>
+  <options />
+  <configurations />
+  <files />
+  <documentation help="" />
+  <offline-documentation help="" />
+  <dependencies>
+    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.39.0" />
+  </dependencies>
+</framework-data>
     </AsfFrameworkConfig>
     <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
     <com_atmel_avrdbg_tool_jtagice3plus>
@@ -53,7 +53,7 @@
     <preserveEEPROM>true</preserveEEPROM>
     <ResetRule>0</ResetRule>
     <EraseKey />
-    <avrtoolserialnumber>J41800024775</avrtoolserialnumber>
+    <avrtoolserialnumber>J41800004247</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x1E9406</avrdeviceexpectedsignature>
     <avrtoolinterfaceclock>125000</avrtoolinterfaceclock>
     <com_atmel_avrdbg_tool_atmelice>
@@ -64,7 +64,7 @@
         <InterfaceName>ISP</InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.atmelice</ToolType>
-      <ToolNumber>J41800024775</ToolNumber>
+      <ToolNumber>J41800004247</ToolNumber>
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
   </PropertyGroup>
@@ -163,6 +163,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="general.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HysteresisFilter.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HysteresisFilter.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="TWI_Master.c">
