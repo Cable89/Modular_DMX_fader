@@ -34,12 +34,9 @@ int main(void)
 	#ifdef SLAVE
 		unsigned char TWI_slaveAddress = 0x10;
 	
-		unsigned char msgLength = 3;
-		volatile unsigned char msg[msgLength];
-		
-		msg[0] = 1;
-		msg[1] = 2;
-		msg[2] = 3;
+		unsigned char msgLength = 4;
+		volatile unsigned char msg[msgLength] = {0, 0, 0, 0};
+
 		// Initialise TWI module for slave operation. Include address and/or enable General Call.
 		TWI_Slave_Initialise( (unsigned char)((TWI_slaveAddress<<TWI_ADR_BITS) ));
 		TWI_Start_Transceiver_With_Data(msg, msgLength);
