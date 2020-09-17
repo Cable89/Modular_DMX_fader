@@ -9,8 +9,8 @@
 #ifndef GENERAL_H_
 #define GENERAL_H_
 
-#define MASTER
-//#define SLAVE
+//#define MASTER
+#define SLAVE
 
 
 
