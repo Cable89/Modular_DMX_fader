@@ -35,7 +35,7 @@ int main(void)
 		unsigned char TWI_slaveAddress = 0x10;
 	
 		unsigned char msgLength = 4;
-		volatile unsigned char msg[msgLength] = {0, 0, 0, 0};
+		volatile unsigned char msg[4] = {0, 0, 0, 0};
 
 		// Initialise TWI module for slave operation. Include address and/or enable General Call.
 		TWI_Slave_Initialise( (unsigned char)((TWI_slaveAddress<<TWI_ADR_BITS) ));
