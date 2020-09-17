@@ -8,6 +8,7 @@
 #include "ADC.h"
 #include "DMX_transmit.h"
 #include "TWI_slave.h"
+#include "HysteresisFilter.h"
 #include <avr/interrupt.h>
 
 #define BUT0_LED PC0
@@ -19,6 +20,7 @@
 #define BUT2 PD3
 
 volatile uint8_t counter = 1;
+volatile uint8_t input_buffer[4] = {0, 0, 0, 0};
 
 void leds_and_buttons_init()
 {
@@ -54,7 +56,9 @@ void adc_init()
 
 ISR(ADC_vect)
 {
-	DmxField[counter - 1] = ADCH;
+	input_buffer[counter - 1] = hysteresisfilter((uint16_t)((ADCH << 2) /*| (ADCL >> 6)*/), input_buffer[counter-1]);
+	DmxField[counter - 1] = input_buffer[counter -1];
+	
 	
 	if (PINB & (1<<BUT0))
 	{
@@ -86,50 +90,13 @@ ISR(ADC_vect)
 		PORTD &= ~(1<<BUT2_LED);
 	}
 	
-	/*
-	uint8_t adc_value = ADCH;
-	
-	if (counter == 1)
-	{
-		if (adc_value > 127)
-		{
-			PORTC |= (1<<BUT0_LED);
-		}
-		else
-		{
-			PORTC &= ~(1<<BUT0_LED);
-		}
-	}
-	if (counter == 2)
-	{
-		if (adc_value > 127)
-		{
-			PORTD |= (1<<BUT1_LED);
-		}
-		else
-		{
-			PORTD &= ~(1<<BUT1_LED);
-		}
-	}
-	if (counter == 3)
-	{
-		if (adc_value > 127)
-		{
-			PORTD |= (1<<BUT2_LED);
-		}
-		else
-		{
-			PORTD &= ~(1<<BUT2_LED);
-		}
-	}
-	*/
-	
 	counter++;
 	
 	if (counter > 3)
 	{
 		counter = 1;
-		//TWI_update_buffer(DmxField, DMX_LENGTH);
+		input_buffer[3] = (uint8_t)(((PINB & (1<<BUT0)) >> BUT0) | (((PIND & (1<<BUT1)) >> BUT1) << 1) | (((PIND & (1<<BUT2)) >> BUT2) << 2));
+		TWI_update_buffer(input_buffer, 4);
 	}
 	//choose next channel
 	ADMUX = counter | (1<<ADLAR);
