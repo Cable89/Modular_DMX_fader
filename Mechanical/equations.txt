@@ -1,0 +1,6 @@
+﻿"margin"= 0.2
+"height"= 18
+"length"= 113
+"tabwidth"= 10
+"width"= 57
+"thick"= 1.5
