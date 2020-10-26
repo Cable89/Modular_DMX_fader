@@ -32,7 +32,8 @@ int main(void)
 	
 	// Own TWI slave address
 	#ifdef SLAVE
-		unsigned char TWI_slaveAddress = 0x10;
+		//unsigned char TWI_slaveAddress = 0x10;
+		unsigned char TWI_slaveAddress = ( ( ~((ADDRESS_PORT & ADDRESS_MASK) >> ADDRESS_OFFSET) + 1) << 1);
 	
 		unsigned char msgLength = 4;
 		volatile unsigned char msg[4] = {0, 0, 0, 0};
