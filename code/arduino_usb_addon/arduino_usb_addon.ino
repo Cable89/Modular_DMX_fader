@@ -58,9 +58,9 @@ void loop() {
         for(int button=0; button<3; button++){
           if( (val_buffer[i] & (1 << button)) != (prev_val[i] & (1 << button)) ){
             if (val_buffer[i] & (1 << button)){
-              noteOn(button, 42, 127);
+              noteOn(button, 60+button, 127);
             } else {
-              noteOff(button, 42, 127);
+              noteOff(button, 60+button, 0);
             }
           }
         }
