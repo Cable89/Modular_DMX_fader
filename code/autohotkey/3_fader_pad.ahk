@@ -26,7 +26,7 @@ sub_exit:
 ExitApp 
 
 ;-------------------------Miscellaneous hotkeys----------------------- 
-Esc::ExitApp 
+
 
 ;-------------------------Midi "hotkey" functions--------------------- 
 
