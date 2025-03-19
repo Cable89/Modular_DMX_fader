@@ -14,9 +14,9 @@ listenNote(60, "note60")
 listenNote(61, "playPause")
 listenNote(62, "note62")
 
-listenCC(7, "do_cc_1", 1)
+listenCC(7, "master_volume", 1)
 listenCC(7, "media_volume", 2)
-listenCC(7, "master_volume", 3)
+listenCC(7, "do_cc_3", 3)
 
 return 
 ;----------------------End of auto execute section-------------------- 
@@ -65,10 +65,10 @@ media_volume(ccnumber, ccvel)
    SoundSet, ccvel/1.27, Microphone
 }
 
-do_cc_1(ccnumber, ccvel)
+do_cc_3(ccnumber, ccvel)
 {
- if (ccvel)
-   SoundSet, ccvel/1.27
+ ;if (ccvel)
+   ;SoundSet, ccvel/1.27
 }
 
 ;-------------------------  Midi input library  ---------------------- 
